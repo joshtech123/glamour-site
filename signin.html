@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glamour | Sign In</title>
+  <style>
+    :root{
+      --bg:#040608;
+      --bg2:#090d12;
+      --panel:#0d1117;
+      --panel2:#10151d;
+      --line:rgba(228,184,74,.16);
+      --line2:rgba(255,255,255,.08);
+      --gold:#d8a92f;
+      --gold2:#efc458;
+      --gold3:#ffd978;
+      --text:#f2f4f7;
+      --muted:#9aa5b3;
+      --muted2:#7f8997;
+      --glow:rgba(216,169,47,.18);
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+      --success:#27d59a;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html,body{
+      min-height:100%;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(216,169,47,.12), transparent 24%),
+        radial-gradient(circle at 85% 80%, rgba(216,169,47,.05), transparent 20%),
+        linear-gradient(90deg, #020406 0%, #06090d 36%, #05070a 100%);
+      color:var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(216,169,47,.055) 15%, transparent 28%, transparent 62%, rgba(216,169,47,.04) 78%, transparent 100%);
+      opacity:.65;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:radial-gradient(circle at center, transparent 40%, rgba(0,0,0,.28) 100%);
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px 18px;
+      position:relative;
+    }
+
+    .signin-wrap{
+      width:min(980px, 100%);
+      min-height:560px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius:24px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(10,13,18,.96), rgba(8,11,15,.98));
+      border:1px solid rgba(228,184,74,.14);
+      box-shadow:var(--shadow);
+      position:relative;
+      z-index:2;
+    }
+
+    .signin-wrap::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(216,169,47,.045), transparent 30%, transparent 70%, rgba(216,169,47,.03));
+      pointer-events:none;
+    }
+
+    .left{
+      padding:34px 26px 26px 26px;
+      background:
+        linear-gradient(180deg, rgba(17,21,27,.96), rgba(12,15,20,.98));
+      border-right:1px solid rgba(228,184,74,.10);
+      position:relative;
+    }
+
+    .right{
+      padding:34px 26px 26px 26px;
+      background:
+        linear-gradient(180deg, rgba(12,16,23,.96), rgba(10,13,18,.98));
+      position:relative;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:30px;
+      color:#fff;
+    }
+
+    .logo-mark{
+      width:19px;
+      height:19px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:11px;
+      font-weight:700;
+      background:linear-gradient(135deg, #f6d06f, #c68a10);
+      color:#101010;
+      box-shadow:0 0 12px rgba(216,169,47,.25);
+      flex-shrink:0;
+    }
+
+    .logo-text{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:17px;
+      letter-spacing:.2px;
+    }
+
+    .hero-title{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:33px;
+      line-height:1.08;
+      font-weight:500;
+      color:#f5f1e8;
+      max-width:320px;
+      margin-bottom:16px;
+    }
+
+    .hero-title span{
+      color:var(--gold2);
+      font-style:italic;
+    }
+
+    .hero-copy{
+      max-width:340px;
+      font-size:13px;
+      line-height:1.7;
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    .members-bar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-height:44px;
+      padding:0 14px;
+      border-radius:14px;
+      border:1px solid rgba(38,213,154,.18);
+      background:linear-gradient(90deg, rgba(13,49,40,.34), rgba(8,35,31,.22));
+      margin-bottom:14px;
+      width:100%;
+      max-width:360px;
+    }
+
+    .members-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#22d39a;
+      box-shadow:0 0 14px rgba(34,211,154,.55);
+      flex-shrink:0;
+    }
+
+    .members-bar span{
+      font-size:12.5px;
+      color:#dceee7;
+    }
+
+    .members-bar strong{
+      color:#57efbf;
+    }
+
+    .recent-title{
+      font-size:10px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#8e98a5;
+      margin:16px 0 8px;
+    }
+
+    .earn-list{
+      width:100%;
+      max-width:360px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom:16px;
+    }
+
+    .earn-item{
+      min-height:42px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:0 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.05);
+      background:rgba(255,255,255,.022);
+    }
+
+    .earn-left{
+      min-width:0;
+    }
+
+    .earn-left h4{
+      font-size:12px;
+      font-weight:500;
+      color:#e9edf1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      margin-bottom:2px;
+    }
+
+    .earn-left p{
+      font-size:11px;
+      color:var(--muted2);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .earn-amt{
+      font-size:12px;
+      font-weight:700;
+      color:var(--gold3);
+      flex-shrink:0;
+    }
+
+    .hash{
+      margin-top:8px;
+      font-size:11px;
+      color:var(--gold2);
+      font-weight:600;
+    }
+
+    .form-title{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:24px;
+      font-weight:500;
+      margin-top:8px;
+      margin-bottom:8px;
+      color:#fff;
+    }
+
+    .form-sub{
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+
+    .form-sub a{
+      color:var(--gold2);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .field{
+      margin-bottom:14px;
+    }
+
+    .label{
+      display:block;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      color:#c1cad5;
+      margin-bottom:8px;
+    }
+
+    .input-wrap{
+      position:relative;
+    }
+
+    input{
+      width:100%;
+      height:46px;
+      border-radius:12px;
+      outline:none;
+      border:1px solid rgba(228,184,74,.18);
+      background:rgba(255,255,255,.02);
+      color:#f5f7fa;
+      padding:0 14px;
+      font-size:13px;
+      transition:.2s ease;
+    }
+
+    input::placeholder{
+      color:#737e8b;
+    }
+
+    input:focus{
+      border-color:rgba(239,196,88,.42);
+      box-shadow:0 0 0 4px rgba(216,169,47,.08);
+      background:rgba(255,255,255,.03);
+    }
+
+    .password-toggle{
+      position:absolute;
+      right:12px;
+      top:50%;
+      transform:translateY(-50%);
+      border:none;
+      background:none;
+      color:#909aa8;
+      font-size:11px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin:4px 0 18px;
+      flex-wrap:wrap;
+    }
+
+    .remember{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .remember input{
+      width:14px;
+      height:14px;
+      accent-color:var(--gold);
+    }
+
+    .forgot{
+      color:#aeb8c4;
+      text-decoration:none;
+      font-size:11px;
+    }
+
+    .forgot:hover{
+      color:var(--gold2);
+    }
+
+    .primary-btn{
+      width:100%;
+      height:50px;
+      border:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      color:#151107;
+      background:linear-gradient(135deg, #c99616, #efc458);
+      box-shadow:0 12px 24px rgba(216,169,47,.18);
+      cursor:pointer;
+      transition:.25s ease;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 16px 28px rgba(216,169,47,.23);
+    }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:16px 0 14px;
+      font-size:11px;
+      color:#77818d;
+    }
+
+    .divider::before,
+    .divider::after{
+      content:"";
+      flex:1;
+      height:1px;
+      background:rgba(255,255,255,.08);
+    }
+
+    .social-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .social-btn{
+      height:44px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(255,255,255,.02);
+      color:#e7edf4;
+      font-size:13px;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .social-btn:hover{
+      background:rgba(255,255,255,.04);
+      border-color:rgba(228,184,74,.18);
+    }
+
+    .social-icon{
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:11px;
+      font-weight:800;
+      flex-shrink:0;
+    }
+
+    .google .social-icon{
+      background:#ffffff;
+      color:#111;
+    }
+
+    .facebook .social-icon{
+      background:#1877f2;
+      color:#fff;
+    }
+
+    .bottom-box{
+      margin-top:14px;
+      padding:15px 16px;
+      border:1px solid rgba(228,184,74,.13);
+      border-radius:14px;
+      background:rgba(255,255,255,.018);
+      text-align:center;
+      font-size:12px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    .bottom-box a{
+      color:var(--gold2);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .toast-stack{
+      position:fixed;
+      right:22px;
+      top:22px;
+      width:min(320px, calc(100vw - 28px));
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:20;
+      pointer-events:none;
+    }
+
+    .toast{
+      background:rgba(12,16,22,.94);
+      border:1px solid rgba(228,184,74,.12);
+      border-radius:16px;
+      box-shadow:0 16px 32px rgba(0,0,0,.32);
+      padding:12px 14px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      opacity:0;
+      transform:translateY(-10px);
+      animation:toastIn 6s ease forwards;
+      backdrop-filter:blur(10px);
+    }
+
+    .toast-avatar{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:linear-gradient(135deg, #f0cf77, #b97d08);
+      color:#111;
+      display:grid;
+      place-items:center;
+      font-size:12px;
+      font-weight:700;
+      flex-shrink:0;
+    }
+
+    .toast-body{
+      min-width:0;
+    }
+
+    .toast-body h4{
+      font-size:12.5px;
+      color:#eff3f8;
+      margin-bottom:3px;
+      font-weight:600;
+    }
+
+    .toast-body p{
+      font-size:11.2px;
+      color:#9aa5b3;
+      line-height:1.45;
+    }
+
+    .toast-time{
+      display:block;
+      margin-top:5px;
+      font-size:10px;
+      color:#6f7a88;
+    }
+
+    @keyframes toastIn{
+      0%{
+        opacity:0;
+        transform:translateY(-10px);
+      }
+      10%,78%{
+        opacity:1;
+        transform:translateY(0);
+      }
+      100%{
+        opacity:0;
+        transform:translateY(-6px);
+      }
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(4,7,11,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:40;
+      backdrop-filter:blur(10px);
+    }
+
+    .modal.show{
+      display:flex;
+    }
+
+    .modal-card{
+      width:min(460px, 100%);
+      border-radius:22px;
+      border:1px solid rgba(228,184,74,.15);
+      background:linear-gradient(180deg, rgba(13,18,25,.98), rgba(10,13,18,.99));
+      box-shadow:0 20px 44px rgba(0,0,0,.42);
+      overflow:hidden;
+    }
+
+    .modal-head{
+      padding:20px 20px 14px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      position:relative;
+    }
+
+    .modal-head h3{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:26px;
+      font-weight:500;
+      color:#fff;
+      margin-bottom:6px;
+    }
+
+    .modal-head p{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.7;
+      max-width:360px;
+    }
+
+    .close{
+      position:absolute;
+      right:14px;
+      top:14px;
+      width:34px;
+      height:34px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,.05);
+      color:#f0f3f7;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    .modal-body{
+      padding:16px 20px 20px;
+    }
+
+    .modal-note{
+      border:1px solid rgba(228,184,74,.12);
+      background:rgba(255,255,255,.02);
+      border-radius:14px;
+      padding:14px;
+      margin-bottom:14px;
+    }
+
+    .modal-note h4{
+      font-size:13px;
+      margin-bottom:5px;
+      color:#fff;
+    }
+
+    .modal-note p{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .modal-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .modal-btn{
+      height:46px;
+      border:none;
+      border-radius:12px;
+      font-size:13px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .modal-btn.primary{
+      background:linear-gradient(135deg, #c99616, #efc458);
+      color:#171208;
+    }
+
+    .modal-btn.secondary{
+      background:rgba(255,255,255,.05);
+      color:#eef3f8;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    @media (max-width: 860px){
+      .signin-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .left{
+        border-right:none;
+        border-bottom:1px solid rgba(228,184,74,.10);
+      }
+    }
+
+    @media (max-width: 540px){
+      .left,.right{
+        padding:22px 18px;
+      }
+
+      .hero-title{
+        font-size:28px;
+      }
+
+      .social-row,
+      .modal-actions{
+        grid-template-columns:1fr;
+      }
+
+      .toast-stack{
+        right:12px;
+        top:12px;
+        width:calc(100vw - 24px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toast-stack" id="toastStack"></div>
+
+  <main class="page">
+    <section class="signin-wrap">
+      <div class="left">
+        <div class="logo">
+          <div class="logo-mark">✦</div>
+          <div class="logo-text">Glamour</div>
+        </div>
+
+        <h1 class="hero-title">
+          Welcome<br />
+          Back to the<br />
+          <span>Glamour Life</span>
+        </h1>
+
+        <p class="hero-copy">
+          Your earnings are waiting. Sign in to access your dashboard,
+          track your tasks, and stay connected to the full Glamour experience.
+        </p>
+
+        <div class="members-bar">
+          <div class="members-dot"></div>
+          <span><strong>50,000+</strong> members earning right now</span>
+        </div>
+
+        <div class="recent-title">Recent earnings</div>
+
+        <div class="earn-list">
+          <div class="earn-item">
+            <div class="earn-left">
+              <h4>Nn Chidi O.  •  Igbo translation</h4>
+              <p>GlamLingua payout confirmed</p>
+            </div>
+            <div class="earn-amt">+€12.40</div>
+          </div>
+
+          <div class="earn-item">
+            <div class="earn-left">
+              <h4>Amaka K.  •  Lifestyle content</h4>
+              <p>GlamLifestyle content approved</p>
+            </div>
+            <div class="earn-amt">+€34.00</div>
+          </div>
+
+          <div class="earn-item">
+            <div class="earn-left">
+              <h4>Fatima B.  •  Hausa teach</h4>
+              <p>GlamLingua session completed</p>
+            </div>
+            <div class="earn-amt">+€8.50</div>
+          </div>
+        </div>
+
+        <div class="hash">#GlamLifeSoftLife</div>
+      </div>
+
+      <div class="right">
+        <div class="form-title">Sign In</div>
+        <div class="form-sub">
+          New to Glamour?
+          <a href="signup.html">Create a free account</a>
+        </div>
+
+        <form id="loginForm">
+          <div class="field">
+            <label class="label" for="email">Email Address</label>
+            <div class="input-wrap">
+              <input type="email" id="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <div class="input-wrap">
+              <input type="password" id="password" placeholder="Your password" required />
+              <button type="button" class="password-toggle" id="togglePassword">SHOW</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="remember">
+              <input type="checkbox" />
+              <span>Keep me signed in on this device</span>
+            </label>
+
+            <a class="forgot" href="forgot-password.html">Forgot your password?</a>
+          </div>
+
+          <button class="primary-btn" type="submit" id="loginBtn">Sign In to Glamour →</button>
+        </form>
+
+        <div class="divider">or continue with</div>
+
+        <div class="social-row">
+          <button class="social-btn google social-login" data-platform="Google">
+            <span class="social-icon">G</span>
+            <span>Google</span>
+          </button>
+
+          <button class="social-btn facebook social-login" data-platform="Facebook">
+            <span class="social-icon">f</span>
+            <span>Facebook</span>
+          </button>
+        </div>
+
+        <div class="bottom-box">
+          Don’t have a Glamour account yet?<br />
+          <a href="signup.html">Join the movement, it’s free →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="socialModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <button class="close" id="closeModal">&times;</button>
+        <h3>Social login coming soon</h3>
+        <p id="modalText">
+          Social sign in is not available yet. For now, continue with your email and password to access your Glamour account.
+        </p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-note">
+          <h4>Use your main account login</h4>
+          <p>
+            To keep access smooth and secure, sign in with your registered email address.
+            If you are new here, create an account first.
+          </p>
+        </div>
+
+        <div class="modal-note">
+          <h4>Need help?</h4>
+          <p>
+            For onboarding help or support, contact the official Telegram profile:
+            <strong style="color:#efc458;">@Quin_favy_Networker</strong>
+          </p>
+        </div>
+
+        <div class="modal-actions">
+          <button class="modal-btn secondary" id="continueEmail">Continue with Email</button>
+          <button class="modal-btn primary" id="openTelegram">Open Telegram</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+
+    togglePassword.addEventListener('click', () => {
+      const currentType = password.getAttribute('type');
+      if(currentType === 'password'){
+        password.setAttribute('type', 'text');
+        togglePassword.textContent = 'HIDE';
+      } else {
+        password.setAttribute('type', 'password');
+        togglePassword.textContent = 'SHOW';
+      }
+    });
+
+    const loginForm = document.getElementById('loginForm');
+    const loginBtn = document.getElementById('loginBtn');
+
+    loginForm.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      if(!email || !pass){
+        alert('Please fill in your email and password.');
+        return;
+      }
+
+      loginBtn.textContent = 'Signing in...';
+      loginBtn.disabled = true;
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1200);
+    });
+
+    const socialButtons = document.querySelectorAll('.social-login');
+    const socialModal = document.getElementById('socialModal');
+    const closeModal = document.getElementById('closeModal');
+    const continueEmail = document.getElementById('continueEmail');
+    const openTelegram = document.getElementById('openTelegram');
+    const modalText = document.getElementById('modalText');
+
+    socialButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const platform = button.dataset.platform || 'Social';
+        modalText.textContent = platform + ' login is not available yet. For now, continue with your email and password to access your Glamour account.';
+        socialModal.classList.add('show');
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      socialModal.classList.remove('show');
+    });
+
+    continueEmail.addEventListener('click', () => {
+      socialModal.classList.remove('show');
+      document.getElementById('email').focus();
+    });
+
+    openTelegram.addEventListener('click', () => {
+      window.open('https://t.me/Quin_favy_Networker', '_blank');
+    });
+
+    socialModal.addEventListener('click', (e) => {
+      if(e.target === socialModal){
+        socialModal.classList.remove('show');
+      }
+    });
+
+    const toastStack = document.getElementById('toastStack');
+
+    const toastData = [
+      {
+        initials:'AO',
+        title:'Aisha O. just joined Glamour',
+        text:'Account created successfully from Lagos',
+        time:'Just now'
+      },
+      {
+        initials:'CK',
+        title:'Chinedu K. earned €8.50',
+        text:'GlamRealtime task approved',
+        time:'1 min ago'
+      },
+      {
+        initials:'FB',
+        title:'Fatima B. completed a task',
+        text:'Hausa teaching session confirmed',
+        time:'2 mins ago'
+      },
+      {
+        initials:'TM',
+        title:'Tobi M. signed in',
+        text:'Dashboard activity resumed',
+        time:'3 mins ago'
+      },
+      {
+        initials:'NE',
+        title:'Ngozi E. earned €12.40',
+        text:'GlamLingua payout added',
+        time:'4 mins ago'
+      }
+    ];
+
+    let toastIndex = 0;
+
+    function createToast(item){
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `
+        <div class="toast-avatar">${item.initials}</div>
+        <div class="toast-body">
+          <h4>${item.title}</h4>
+          <p>${item.text}</p>
+          <span class="toast-time">${item.time}</span>
+        </div>
+      `;
+      toastStack.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 6000);
+    }
+
+    function cycleToasts(){
+      createToast(toastData[toastIndex % toastData.length]);
+      toastIndex++;
+    }
+
+    cycleToasts();
+    setInterval(cycleToasts, 3200);
+  </script>
+</body>
+</html>

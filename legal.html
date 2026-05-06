@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Glamour Legal | Terms of Service and Privacy Policy</title>
+
+  <meta name="description" content="Read Glamour's Terms of Service and Privacy Policy covering account access, activation, tasks, wallet, user data, platform rules, and support." />
+  <meta name="keywords" content="Glamour terms, Glamour privacy policy, Glamour legal, Glamour account terms, Glamour platform policy" />
+  <meta name="author" content="JOSHTECH INSPIRE" />
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    :root{
+      --bg:#040608;
+      --panel:#0d1117;
+      --panel2:#10151d;
+      --line:rgba(228,184,74,.16);
+      --line2:rgba(255,255,255,.08);
+      --gold:#d8a92f;
+      --gold2:#efc458;
+      --gold3:#ffd978;
+      --text:#f2f4f7;
+      --muted:#9aa5b3;
+      --muted2:#7f8997;
+      --green:#27d59a;
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 20% 12%, rgba(216,169,47,.12), transparent 24%),
+        radial-gradient(circle at 85% 78%, rgba(39,213,154,.05), transparent 24%),
+        linear-gradient(90deg, #020406 0%, #06090d 42%, #05070a 100%);
+      color:var(--text);
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size:42px 42px;
+      opacity:.14;
+      mask-image:radial-gradient(circle at center, black 42%, transparent 90%);
+      z-index:-2;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:0 clamp(18px, 5vw, 70px);
+      background:rgba(4,6,8,.76);
+      border-bottom:1px solid rgba(228,184,74,.12);
+      backdrop-filter:blur(16px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#fff;
+    }
+
+    .brand-mark{
+      width:23px;
+      height:23px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #f6d06f, #b87906);
+      color:#111;
+      font-weight:900;
+      font-size:12px;
+      box-shadow:0 0 16px rgba(216,169,47,.25);
+    }
+
+    .brand-name{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:20px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      min-height:38px;
+      padding:0 13px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      color:#dce3ea;
+      font-size:12px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.07);
+      background:rgba(255,255,255,.025);
+      transition:.2s ease;
+    }
+
+    .nav a:hover{
+      color:var(--gold2);
+      border-color:rgba(228,184,74,.22);
+    }
+
+    .hero{
+      width:min(1100px, calc(100% - 36px));
+      margin:0 auto;
+      padding:64px 0 28px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:34px;
+      padding:0 13px;
+      border-radius:999px;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(228,184,74,.14);
+      color:#fff1bf;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 13px rgba(39,213,154,.65);
+    }
+
+    .hero h1{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(38px, 6vw, 72px);
+      line-height:1.02;
+      font-weight:500;
+      max-width:820px;
+      color:#fff;
+      margin-bottom:18px;
+    }
+
+    .hero h1 span{
+      color:var(--gold2);
+      font-style:italic;
+    }
+
+    .hero p{
+      max-width:760px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.85;
+    }
+
+    .quick{
+      margin-top:25px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .quick a{
+      min-height:44px;
+      padding:0 16px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:900;
+      border:1px solid rgba(228,184,74,.15);
+      background:rgba(255,255,255,.025);
+      color:#eaf0f6;
+    }
+
+    .quick a.primary{
+      color:#151107;
+      background:linear-gradient(135deg, #c99616, #efc458);
+      border:0;
+    }
+
+    .layout{
+      width:min(1100px, calc(100% - 36px));
+      margin:0 auto 70px;
+      display:grid;
+      grid-template-columns:280px 1fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .side{
+      position:sticky;
+      top:94px;
+      border-radius:22px;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.065);
+      padding:16px;
+      box-shadow:0 16px 42px rgba(0,0,0,.16);
+    }
+
+    .side h3{
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+      font-size:20px;
+      margin-bottom:12px;
+    }
+
+    .side a{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      min-height:40px;
+      padding:0 11px;
+      border-radius:12px;
+      color:#aeb8c4;
+      font-size:13px;
+      font-weight:800;
+      transition:.2s ease;
+    }
+
+    .side a:hover{
+      background:rgba(216,169,47,.09);
+      color:var(--gold2);
+    }
+
+    .side-note{
+      margin-top:14px;
+      padding:13px;
+      border-radius:14px;
+      background:rgba(216,169,47,.06);
+      border:1px solid rgba(216,169,47,.13);
+      color:#cdd5df;
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .content{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .section{
+      border-radius:24px;
+      background:
+        radial-gradient(circle at top right, rgba(216,169,47,.06), transparent 34%),
+        rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.065);
+      box-shadow:0 16px 42px rgba(0,0,0,.16);
+      padding:24px;
+      scroll-margin-top:96px;
+    }
+
+    .section h2{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:31px;
+      font-weight:500;
+      color:#fff;
+      margin-bottom:12px;
+    }
+
+    .section h3{
+      font-size:16px;
+      color:#fff1bf;
+      margin:22px 0 8px;
+    }
+
+    .section p,
+    .section li{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.85;
+    }
+
+    .section ul{
+      margin-left:18px;
+      display:grid;
+      gap:7px;
+    }
+
+    .section strong{
+      color:#eef3f8;
+    }
+
+    .highlight{
+      margin:18px 0;
+      border-radius:16px;
+      padding:15px;
+      background:rgba(216,169,47,.06);
+      border:1px solid rgba(216,169,47,.13);
+      color:#dfe6ed;
+      font-size:13px;
+      line-height:1.75;
+    }
+
+    .table{
+      border:1px solid rgba(255,255,255,.065);
+      border-radius:16px;
+      overflow:hidden;
+      margin-top:14px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:.7fr 1.3fr;
+      gap:12px;
+      padding:13px 14px;
+      border-bottom:1px solid rgba(255,255,255,.055);
+      font-size:13px;
+    }
+
+    .row:last-child{
+      border-bottom:0;
+    }
+
+    .row span:first-child{
+      color:#fff1bf;
+      font-weight:900;
+    }
+
+    .row span:last-child{
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .footer{
+      width:min(1100px, calc(100% - 36px));
+      margin:0 auto 35px;
+      padding-top:22px;
+      border-top:1px solid rgba(228,184,74,.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:#737e8b;
+      font-size:12px;
+    }
+
+    .footer a{
+      color:var(--gold2);
+      font-weight:900;
+    }
+
+    @media(max-width:850px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      .side{
+        position:relative;
+        top:auto;
+      }
+
+      .topbar{
+        height:auto;
+        min-height:74px;
+        padding-top:14px;
+        padding-bottom:14px;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav{
+        justify-content:flex-start;
+      }
+    }
+
+    @media(max-width:560px){
+      .hero{
+        padding-top:44px;
+      }
+
+      .section{
+        padding:20px 16px;
+      }
+
+      .row{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:39px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">✦</div>
+      <div class="brand-name">Glamour</div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="signin.html">Sign In</a>
+      <a href="signup.html">Create Account</a>
+      <a href="https://t.me/Quin_favy_Networker" target="_blank">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Glamour Legal Center</span>
+      </div>
+
+      <h1>Terms and <span>Privacy Policy</span></h1>
+
+      <p>
+        This page explains the rules for using Glamour, how account activation works,
+        how tasks and wallet features are handled, and how user information may be collected,
+        used and protected on the platform.
+      </p>
+
+      <div class="quick">
+        <a href="#terms" class="primary">Read Terms</a>
+        <a href="#privacy">Read Privacy Policy</a>
+        <a href="https://t.me/Quin_favy_Networker" target="_blank">Telegram Support</a>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="side">
+        <h3>Legal Menu</h3>
+        <a href="#terms">Terms of Service</a>
+        <a href="#account">Account Registration</a>
+        <a href="#activation">Activation and Fees</a>
+        <a href="#tasks">Tasks and Rewards</a>
+        <a href="#withdrawals">Wallet and Withdrawals</a>
+        <a href="#conduct">User Conduct</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#data">Data We Collect</a>
+        <a href="#security">Security</a>
+        <a href="#contact">Contact</a>
+
+        <div class="side-note">
+          These terms are written for a clean platform experience. For official legal use,
+          review with a qualified legal adviser before launch.
+        </div>
+      </aside>
+
+      <div class="content">
+        <section class="section" id="terms">
+          <h2>Terms of Service</h2>
+
+          <p>
+            Welcome to Glamour. By creating an account, signing in, using the dashboard,
+            paying for activation, completing tasks, or interacting with any Glamour feature,
+            you agree to follow these Terms of Service.
+          </p>
+
+          <div class="highlight">
+            Glamour is designed as a lifestyle, creativity, language, culture, content and digital activity platform.
+            Earnings, rewards and task access may depend on activation, eligibility, task approval, platform rules,
+            location, availability and verification.
+          </div>
+
+          <h3>1. Platform Use</h3>
+          <p>
+            Glamour provides users with access to digital features, lifestyle tasks, creator activities,
+            language-based tasks, wallet displays, associate tools, support channels and account management features.
+            You must use the platform only for lawful and honest purposes.
+          </p>
+
+          <h3>2. No Guaranteed Earnings</h3>
+          <p>
+            Glamour may display earning opportunities, wallet balances, bonuses, rewards or task rates.
+            These figures are for platform guidance and may be subject to eligibility, approval,
+            verification and availability. Glamour does not guarantee that every user will earn the same amount.
+          </p>
+
+          <h3>3. User Responsibility</h3>
+          <ul>
+            <li>You are responsible for the accuracy of the information you provide.</li>
+            <li>You must keep your login details safe.</li>
+            <li>You must not impersonate another person or create fake accounts.</li>
+            <li>You must not submit stolen, copied, misleading or harmful content.</li>
+            <li>You must follow all platform instructions during tasks and activation.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="account">
+          <h2>Account Registration</h2>
+
+          <p>
+            To use Glamour, you may need to create an account with your name, email address,
+            phone number, country and password. You agree that the details you provide are accurate
+            and belong to you.
+          </p>
+
+          <h3>Account Access</h3>
+          <p>
+            You are responsible for activities carried out through your account. If you notice suspicious
+            access, contact support immediately through the official Telegram support profile.
+          </p>
+
+          <h3>Account Suspension</h3>
+          <p>
+            Glamour may restrict, suspend or terminate accounts that violate platform rules, submit false
+            information, abuse tasks, attempt fraud, harass users, or damage the platform experience.
+          </p>
+        </section>
+
+        <section class="section" id="activation">
+          <h2>Activation and Fees</h2>
+
+          <p>
+            Certain features may require account activation before full access is unlocked. The standard
+            activation fee displayed on the platform is <strong>₦14,000</strong>, unless updated officially.
+          </p>
+
+          <div class="table">
+            <div class="row">
+              <span>Activation Fee</span>
+              <span>₦14,000, subject to official platform update.</span>
+            </div>
+            <div class="row">
+              <span>Payment Confirmation</span>
+              <span>Users must follow the official payment instructions and contact support after payment.</span>
+            </div>
+            <div class="row">
+              <span>Payment Proof</span>
+              <span>Payment proof may be requested before activation is confirmed.</span>
+            </div>
+            <div class="row">
+              <span>Refunds</span>
+              <span>Fees may be non-refundable once activation review or processing has started, except where Glamour decides otherwise.</span>
+            </div>
+          </div>
+
+          <h3>Official Support</h3>
+          <p>
+            All activation support should be handled through the official Telegram profile:
+            <strong>@Quin_favy_Networker</strong>. Users should avoid paying to any unverified account.
+          </p>
+        </section>
+
+        <section class="section" id="tasks">
+          <h2>Tasks and Rewards</h2>
+
+          <p>
+            Glamour may offer tasks such as GlamLifestyle, GlamRealtime, GlamCuisine, GlamFaceTime,
+            GlamDarkMode, GlamLingua, GlamScript2Cash, GlamWorks, GlamStatus, GlamVoiceVault and
+            other activities.
+          </p>
+
+          <h3>Task Approval</h3>
+          <p>
+            Task rewards may require review before approval. A task may be rejected if it is incomplete,
+            fake, duplicated, low quality, misleading, offensive, copied or submitted against instructions.
+          </p>
+
+          <h3>Reward Display</h3>
+          <p>
+            Task rates displayed on the website are for information and may change based on platform updates,
+            task availability, region, activity type, and approval rules.
+          </p>
+
+          <h3>Content Ownership</h3>
+          <p>
+            By submitting content to Glamour, you confirm that you have the right to use and submit that content.
+            You must not upload another person’s private images, copyrighted work or personal content without permission.
+          </p>
+        </section>
+
+        <section class="section" id="withdrawals">
+          <h2>Wallet and Withdrawals</h2>
+
+          <p>
+            Wallet balances, welcome balances, task earnings, associate rewards and bonuses may be displayed
+            inside the dashboard. Some wallet features may remain locked until activation and verification are complete.
+          </p>
+
+          <h3>Withdrawal Requests</h3>
+          <p>
+            Withdrawals may depend on minimum withdrawal limits, bank details, task approval, identity checks,
+            activation status and platform review. Glamour may delay or reject withdrawals where suspicious
+            activity is detected.
+          </p>
+
+          <h3>Bank Details</h3>
+          <p>
+            Users are responsible for providing correct bank details. Glamour may not be responsible for failed
+            payments caused by wrong account information submitted by the user.
+          </p>
+        </section>
+
+        <section class="section" id="conduct">
+          <h2>User Conduct</h2>
+
+          <p>
+            Glamour is built to support creators, culture, lifestyle and digital activity. Users must act responsibly
+            and avoid any activity that can harm the platform or other users.
+          </p>
+
+          <h3>Users Must Not</h3>
+          <ul>
+            <li>Create multiple fake accounts to manipulate rewards.</li>
+            <li>Submit fake task proof or edited payment proof.</li>
+            <li>Harass, threaten or abuse other users or support agents.</li>
+            <li>Upload illegal, violent, hateful, adult, stolen or harmful content.</li>
+            <li>Attempt to hack, bypass or abuse the dashboard system.</li>
+            <li>Use the platform for fraud, spam or misleading promotions.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="privacy">
+          <h2>Privacy Policy</h2>
+
+          <p>
+            This Privacy Policy explains how Glamour may collect, use and protect information provided by users.
+            By using Glamour, you agree to this Privacy Policy.
+          </p>
+
+          <div class="highlight">
+            Glamour only requests information needed to create accounts, provide support, process activation,
+            manage dashboard access, review tasks and improve the platform experience.
+          </div>
+        </section>
+
+        <section class="section" id="data">
+          <h2>Data We May Collect</h2>
+
+          <p>
+            Glamour may collect basic account and activity information when you register, sign in, activate your
+            account, contact support or use dashboard features.
+          </p>
+
+          <h3>Information May Include</h3>
+          <ul>
+            <li>Full name</li>
+            <li>Email address</li>
+            <li>Phone number</li>
+            <li>Country</li>
+            <li>Password, stored securely where backend protection is available</li>
+            <li>Payment proof and activation details</li>
+            <li>Bank details for withdrawal processing</li>
+            <li>Dashboard activity, task submissions and account status</li>
+            <li>Support messages sent through Telegram or other contact channels</li>
+          </ul>
+
+          <h3>How We Use Information</h3>
+          <ul>
+            <li>To create and manage user accounts.</li>
+            <li>To process activation and account verification.</li>
+            <li>To review tasks and wallet activity.</li>
+            <li>To provide support and respond to user requests.</li>
+            <li>To prevent fraud, fake accounts and platform abuse.</li>
+            <li>To improve platform design, communication and user experience.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="security">
+          <h2>Security and Data Protection</h2>
+
+          <p>
+            Glamour aims to protect user information using reasonable security practices. Users should also protect
+            their own account by using strong passwords and avoiding suspicious links.
+          </p>
+
+          <h3>Important Security Notes</h3>
+          <ul>
+            <li>Do not share your password with anyone.</li>
+            <li>Do not send payment to unverified accounts.</li>
+            <li>Do not share sensitive banking information outside official support instructions.</li>
+            <li>Contact support immediately if someone claims to be Glamour and asks for unusual payments.</li>
+          </ul>
+
+          <h3>Third-Party Services</h3>
+          <p>
+            Glamour may link to third-party platforms such as Telegram, payment processors, hosting services or
+            other external tools. Glamour is not responsible for the privacy practices of third-party websites or apps.
+          </p>
+        </section>
+
+        <section class="section" id="updates">
+          <h2>Updates to These Policies</h2>
+
+          <p>
+            Glamour may update these Terms of Service or Privacy Policy at any time to reflect platform changes,
+            legal updates, feature changes, payment updates or security improvements.
+          </p>
+
+          <p>
+            Users are encouraged to check this page regularly. Continued use of the platform after changes means
+            you accept the updated terms.
+          </p>
+        </section>
+
+        <section class="section" id="contact">
+          <h2>Contact and Support</h2>
+
+          <p>
+            For account activation, login support, payment confirmation, task issues, wallet concerns or general
+            enquiries, contact the official support profile on Telegram.
+          </p>
+
+          <div class="table">
+            <div class="row">
+              <span>Support Name</span>
+              <span>Quin Favy Networker</span>
+            </div>
+            <div class="row">
+              <span>Telegram</span>
+              <span><a href="https://t.me/Quin_favy_Networker" target="_blank" style="color:#efc458;font-weight:900;">@Quin_favy_Networker</a></span>
+            </div>
+            <div class="row">
+              <span>Developer Credit</span>
+              <span>Developed and Designed by JOSHTECH INSPIRE</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Glamour. All rights reserved.</p>
+    <p>
+      Developed and Designed by
+      <a href="https://wa.me/2347075210213" target="_blank">JOSHTECH INSPIRE</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

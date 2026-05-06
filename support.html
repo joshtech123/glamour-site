@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Glamour Support | Activation, Login and Wallet Help</title>
+
+  <meta name="description" content="Contact Glamour support for account activation, login help, payment proof confirmation, wallet issues, task access, and dashboard support." />
+  <meta name="keywords" content="Glamour support, Glamour activation help, Glamour payment proof, Glamour login help, Glamour wallet support, Glamour Telegram support" />
+  <meta name="author" content="JOSHTECH INSPIRE" />
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    :root{
+      --bg:#040608;
+      --panel:#0d1117;
+      --panel2:#111722;
+      --line:rgba(228,184,74,.16);
+      --line2:rgba(255,255,255,.07);
+      --gold:#d8a92f;
+      --gold2:#efc458;
+      --gold3:#ffd978;
+      --green:#27d59a;
+      --red:#ff7b7b;
+      --text:#f2f4f7;
+      --muted:#9aa5b3;
+      --muted2:#77828f;
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 20% 12%, rgba(216,169,47,.12), transparent 24%),
+        radial-gradient(circle at 85% 78%, rgba(39,213,154,.05), transparent 24%),
+        linear-gradient(90deg, #020406 0%, #06090d 42%, #05070a 100%);
+      color:var(--text);
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size:42px 42px;
+      opacity:.14;
+      mask-image:radial-gradient(circle at center, black 42%, transparent 90%);
+      z-index:-2;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,input,textarea,select{
+      font-family:inherit;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:0 clamp(18px, 5vw, 70px);
+      background:rgba(4,6,8,.76);
+      border-bottom:1px solid rgba(228,184,74,.12);
+      backdrop-filter:blur(16px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#fff;
+    }
+
+    .brand-mark{
+      width:23px;
+      height:23px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #f6d06f, #b87906);
+      color:#111;
+      font-weight:900;
+      font-size:12px;
+      box-shadow:0 0 16px rgba(216,169,47,.25);
+    }
+
+    .brand-name{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:20px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      min-height:38px;
+      padding:0 13px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      color:#dce3ea;
+      font-size:12px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.07);
+      background:rgba(255,255,255,.025);
+      transition:.2s ease;
+    }
+
+    .nav a:hover{
+      color:var(--gold2);
+      border-color:rgba(228,184,74,.22);
+    }
+
+    .hero{
+      width:min(1100px, calc(100% - 36px));
+      margin:0 auto;
+      padding:70px 0 40px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:34px;
+      padding:0 13px;
+      border-radius:999px;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(228,184,74,.14);
+      color:#fff1bf;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 13px rgba(39,213,154,.65);
+    }
+
+    .hero h1{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(38px, 6vw, 72px);
+      line-height:1.02;
+      font-weight:500;
+      max-width:760px;
+      color:#fff;
+      margin-bottom:18px;
+    }
+
+    .hero h1 span{
+      color:var(--gold2);
+      font-style:italic;
+    }
+
+    .hero p{
+      max-width:720px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.85;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:900;
+      transition:.22s ease;
+    }
+
+    .btn-gold{
+      color:#151107;
+      background:linear-gradient(135deg, #c99616, #efc458);
+      box-shadow:0 14px 28px rgba(216,169,47,.16);
+    }
+
+    .btn-gold:hover{
+      transform:translateY(-1px);
+      box-shadow:0 18px 34px rgba(216,169,47,.22);
+    }
+
+    .btn-dark{
+      color:#e5ebf1;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .btn-dark:hover{
+      border-color:rgba(228,184,74,.22);
+      color:var(--gold2);
+    }
+
+    .support-card{
+      border-radius:26px;
+      background:
+        radial-gradient(circle at top right, rgba(216,169,47,.09), transparent 34%),
+        rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+
+    .support-card h3{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:27px;
+      font-weight:500;
+      color:#fff;
+      margin-bottom:10px;
+    }
+
+    .support-card p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.75;
+      margin-bottom:16px;
+    }
+
+    .support-profile{
+      display:flex;
+      align-items:center;
+      gap:13px;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.065);
+      margin-bottom:15px;
+    }
+
+    .profile-avatar{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #f6d06f, #b87906);
+      color:#111;
+      font-weight:900;
+      flex-shrink:0;
+    }
+
+    .support-profile h4{
+      font-size:14px;
+      color:#fff;
+      margin-bottom:4px;
+    }
+
+    .support-profile span{
+      color:#8df2c9;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .status-box{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .status-item{
+      padding:13px;
+      border-radius:15px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.022);
+    }
+
+    .status-item strong{
+      display:block;
+      color:#fff1bf;
+      font-size:17px;
+      margin-bottom:4px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+    }
+
+    .status-item span{
+      font-size:11px;
+      color:var(--muted2);
+    }
+
+    .section-wrap{
+      width:min(1100px, calc(100% - 36px));
+      margin:0 auto 70px;
+    }
+
+    .section-title{
+      margin:30px 0 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:flex-end;
+      flex-wrap:wrap;
+    }
+
+    .section-title h2{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:34px;
+      font-weight:500;
+      color:#fff;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+      max-width:520px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .help-card{
+      border-radius:22px;
+      background:
+        radial-gradient(circle at top right, rgba(216,169,47,.055), transparent 34%),
+        rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.065);
+      padding:20px;
+      min-height:230px;
+      transition:.22s ease;
+    }
+
+    .help-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(228,184,74,.18);
+      box-shadow:0 16px 42px rgba(0,0,0,.20);
+    }
+
+    .help-icon{
+      width:45px;
+      height:45px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:rgba(216,169,47,.10);
+      color:var(--gold2);
+      font-size:20px;
+      margin-bottom:15px;
+    }
+
+    .help-card h3{
+      font-size:17px;
+      color:#fff;
+      margin-bottom:9px;
+    }
+
+    .help-card p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.75;
+      margin-bottom:16px;
+    }
+
+    .help-card a,
+    .help-card button{
+      min-height:38px;
+      padding:0 13px;
+      border-radius:999px;
+      border:1px solid rgba(228,184,74,.15);
+      background:rgba(255,255,255,.025);
+      color:#fff1bf;
+      font-size:12px;
+      font-weight:900;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+
+    .process{
+      border-radius:26px;
+      background:
+        radial-gradient(circle at top right, rgba(39,213,154,.055), transparent 34%),
+        rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.065);
+      padding:22px;
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:22px;
+      margin-top:16px;
+    }
+
+    .process h3{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:28px;
+      font-weight:500;
+      color:#fff;
+      margin-bottom:10px;
+    }
+
+    .process p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.75;
+    }
+
+    .steps{
+      display:grid;
+      gap:11px;
+    }
+
+    .step{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:12px;
+      padding:13px;
+      border-radius:16px;
+      background:rgba(255,255,255,.023);
+      border:1px solid rgba(255,255,255,.055);
+    }
+
+    .step-num{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #c99616, #efc458);
+      color:#151107;
+      font-weight:900;
+    }
+
+    .step h4{
+      color:#fff;
+      font-size:14px;
+      margin-bottom:5px;
+    }
+
+    .step p{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.65;
+    }
+
+    .contact-layout{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:16px;
+    }
+
+    .form-card,
+    .faq-card{
+      border-radius:26px;
+      background:
+        radial-gradient(circle at top right, rgba(216,169,47,.055), transparent 34%),
+        rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.065);
+      padding:22px;
+    }
+
+    .form-card h3,
+    .faq-card h3{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:27px;
+      font-weight:500;
+      color:#fff;
+      margin-bottom:10px;
+    }
+
+    .form-card p,
+    .faq-card p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+      margin-bottom:16px;
+    }
+
+    .field{
+      margin-bottom:13px;
+    }
+
+    label{
+      display:block;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      color:#c1cad5;
+      margin-bottom:8px;
+      font-weight:900;
+    }
+
+    input,select,textarea{
+      width:100%;
+      border-radius:12px;
+      outline:none;
+      border:1px solid rgba(228,184,74,.16);
+      background:rgba(255,255,255,.02);
+      color:#f5f7fa;
+      padding:0 14px;
+      font-size:13px;
+      transition:.2s ease;
+    }
+
+    input,select{
+      height:46px;
+    }
+
+    textarea{
+      min-height:110px;
+      padding-top:13px;
+      resize:vertical;
+    }
+
+    select option{
+      background:#10151d;
+      color:#fff;
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+      color:#737e8b;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:rgba(239,196,88,.42);
+      box-shadow:0 0 0 4px rgba(216,169,47,.08);
+      background:rgba(255,255,255,.03);
+    }
+
+    .form-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .faq-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .faq-item{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.022);
+      overflow:hidden;
+    }
+
+    .faq-question{
+      width:100%;
+      min-height:50px;
+      border:0;
+      background:transparent;
+      color:#eef3f8;
+      font-size:13px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:0 14px;
+      cursor:pointer;
+      text-align:left;
+    }
+
+    .faq-answer{
+      display:none;
+      padding:0 14px 14px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .faq-item.active .faq-answer{
+      display:block;
+    }
+
+    .footer{
+      width:min(1100px, calc(100% - 36px));
+      margin:0 auto 35px;
+      padding-top:22px;
+      border-top:1px solid rgba(228,184,74,.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:#737e8b;
+      font-size:12px;
+    }
+
+    .footer a{
+      color:var(--gold2);
+      font-weight:900;
+    }
+
+    .toast{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:min(360px, calc(100vw - 36px));
+      padding:14px;
+      border-radius:16px;
+      background:rgba(12,16,22,.96);
+      border:1px solid rgba(228,184,74,.14);
+      box-shadow:0 16px 32px rgba(0,0,0,.32);
+      display:none;
+      z-index:80;
+      color:#dfe6ed;
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .toast.show{
+      display:block;
+      animation:toastIn .25s ease;
+    }
+
+    @keyframes toastIn{
+      from{opacity:0;transform:translateY(10px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    @media(max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:50px;
+      }
+
+      .grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .process,
+      .contact-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:650px){
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+        padding-top:14px;
+        padding-bottom:14px;
+      }
+
+      .nav{
+        justify-content:flex-start;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .status-box{
+        grid-template-columns:1fr;
+      }
+
+      .form-actions{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">✦</div>
+      <div class="brand-name">Glamour</div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="signin.html">Sign In</a>
+      <a href="signup.html">Create Account</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="legal.html">Legal</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">
+          <span class="dot"></span>
+          <span>Support is active</span>
+        </div>
+
+        <h1>Need help with your <span>Glamour account?</span></h1>
+
+        <p>
+          Get support for activation, payment proof, login issues, wallet access,
+          task problems and dashboard questions. Use the official Telegram profile
+          so your request can be handled cleanly.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://t.me/Quin_favy_Networker" target="_blank">Open Telegram Support</a>
+          <a class="btn btn-dark" href="#contact">Submit Help Request</a>
+        </div>
+      </div>
+
+      <div class="support-card">
+        <h3>Official Support</h3>
+        <p>
+          For activation confirmation and urgent account help, contact the verified support profile below.
+        </p>
+
+        <div class="support-profile">
+          <div class="profile-avatar">QF</div>
+          <div>
+            <h4>Quin Favy Networker</h4>
+            <span>@Quin_favy_Networker</span>
+          </div>
+        </div>
+
+        <a class="btn btn-gold" style="width:100%;" href="https://t.me/Quin_favy_Networker" target="_blank">
+          Message on Telegram
+        </a>
+
+        <div class="status-box">
+          <div class="status-item">
+            <strong>24/7</strong>
+            <span>Access to support link</span>
+          </div>
+          <div class="status-item">
+            <strong>Fast</strong>
+            <span>Activation guidance</span>
+          </div>
+          <div class="status-item">
+            <strong>Clean</strong>
+            <span>Telegram support flow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap">
+      <div class="section-title">
+        <div>
+          <h2>What do you need help with?</h2>
+        </div>
+        <p>
+          Choose the issue that matches your situation. Each option gives users a clear next step instead of leaving them confused.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="help-card">
+          <div class="help-icon">🔐</div>
+          <h3>Account Activation</h3>
+          <p>
+            Paid already or ready to activate? Send your payment proof and account details to support for confirmation.
+          </p>
+          <a href="https://t.me/Quin_favy_Networker" target="_blank">Activate via Telegram</a>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">💳</div>
+          <h3>Payment Proof</h3>
+          <p>
+            After making payment, send a clear screenshot or receipt with your registered name and email.
+          </p>
+          <button onclick="copyInstruction()">Copy Instruction</button>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">🔑</div>
+          <h3>Login Issue</h3>
+          <p>
+            Having trouble signing in? Check your email and password first, then contact support if the issue continues.
+          </p>
+          <a href="signin.html">Back to Sign In</a>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">🏦</div>
+          <h3>Wallet Issue</h3>
+          <p>
+            Wallet access and withdrawal features may stay locked until account activation is confirmed.
+          </p>
+          <a href="dashboard.html">Open Dashboard</a>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">📋</div>
+          <h3>Task Access</h3>
+          <p>
+            If tasks are locked, activate your account first. Task submission becomes available after confirmation.
+          </p>
+          <a href="dashboard.html">View Tasks</a>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">👥</div>
+          <h3>Glam Associates</h3>
+          <p>
+            Need help with your Glamour link, associates, reward structure or referral access? Support can guide you.
+          </p>
+          <a href="https://t.me/Quin_favy_Networker" target="_blank">Ask Support</a>
+        </div>
+      </div>
+
+      <div class="process">
+        <div>
+          <h3>Activation support process</h3>
+          <p>
+            This keeps the support system organized. Users know what to send, where to send it,
+            and what happens after they submit payment proof.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Make payment using official details</h4>
+              <p>Only pay through the account details shown on the dashboard activation popup.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Send proof to Telegram support</h4>
+              <p>Send payment receipt, registered email, full name and phone number.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h4>Wait for activation confirmation</h4>
+              <p>Support will review the proof and confirm the next step for your dashboard access.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title" id="contact">
+        <div>
+          <h2>Submit a help request</h2>
+        </div>
+        <p>
+          This form opens Telegram with a prepared message. No backend needed for now.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="form-card">
+          <h3>Send request</h3>
+          <p>
+            Fill this quickly and the page will prepare your support message for Telegram.
+          </p>
+
+          <form id="supportForm">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Your full name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Registered Email</label>
+              <input type="email" id="email" placeholder="you@email.com" required />
+            </div>
+
+            <div class="field">
+              <label for="issue">Issue Type</label>
+              <select id="issue" required>
+                <option value="">Select issue</option>
+                <option>Account Activation</option>
+                <option>Payment Proof</option>
+                <option>Login Issue</option>
+                <option>Wallet Issue</option>
+                <option>Task Access</option>
+                <option>Glam Associates</option>
+                <option>Other Support</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Explain the issue briefly" required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-gold">Open Telegram</button>
+              <button type="button" class="btn btn-dark" onclick="clearForm()">Clear Form</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="faq-card">
+          <h3>Quick answers</h3>
+          <p>
+            These answers help users understand common issues before contacting support.
+          </p>
+
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                Why is my wallet locked?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Wallet access may remain locked until your account activation is confirmed by support.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                How do I confirm my payment?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Send your payment proof, full name, registered email and phone number to @Quin_favy_Networker on Telegram.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                Can I start tasks immediately?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Task submission is unlocked after activation confirmation. You can view tasks before activation.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                Where do I get support?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                The official Telegram support profile is @Quin_favy_Networker.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                What if I used wrong account details?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Contact Telegram support quickly with your payment receipt and full details for guidance.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Glamour. All rights reserved.</p>
+    <p>
+      Developed and Designed by
+      <a href="https://wa.me/2347075210213" target="_blank">JOSHTECH INSPIRE</a>
+    </p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const telegramLink = "https://t.me/Quin_favy_Networker";
+    const toast = document.getElementById("toast");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    function copyInstruction(){
+      const text = "Hello, I want to confirm my Glamour activation payment. Name: [Your Name], Email: [Your Email], Phone: [Your Phone]. I have attached my payment proof.";
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Payment proof instruction copied.");
+      }).catch(() => {
+        showToast("Copy failed. You can type the instruction manually.");
+      });
+    }
+
+    function toggleFAQ(button){
+      const item = button.parentElement;
+      item.classList.toggle("active");
+    }
+
+    function clearForm(){
+      document.getElementById("supportForm").reset();
+      showToast("Form cleared.");
+    }
+
+    document.getElementById("supportForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const issue = document.getElementById("issue").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const supportMessage =
+        "Hello Quin Favy Networker, I need help with Glamour." +
+        "\\n\\nName: " + name +
+        "\\nEmail: " + email +
+        "\\nIssue: " + issue +
+        "\\nMessage: " + message;
+
+      window.open(telegramLink + "?text=" + encodeURIComponent(supportMessage), "_blank");
+      showToast("Telegram opened. Send your support request there.");
+    });
+  </script>
+</body>
+</html>
