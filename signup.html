@@ -1943,5 +1943,228 @@ Never send payment to any unverified account.
   </script>
 <a href="legal.html#terms">Terms of Service</a>
 <a href="legal.html#privacy">Privacy Policy</a>
+  <script>
+(function () {
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+
+  ready(function () {
+    const form =
+      document.getElementById("signupForm") ||
+      document.querySelector("form");
+
+    const passwordInput =
+      document.getElementById("password") ||
+      document.querySelector('input[type="password"]');
+
+    const toggleBtn =
+      document.getElementById("togglePassword") ||
+      document.querySelector(".password-toggle") ||
+      Array.from(document.querySelectorAll("button")).find(btn =>
+        btn.textContent.trim().toLowerCase().includes("show") ||
+        btn.textContent.trim().toLowerCase().includes("hide")
+      );
+
+    const submitBtn =
+      document.getElementById("signupBtn") ||
+      document.querySelector('button[type="submit"]');
+
+    const agreeTerms =
+      document.getElementById("agreeTerms") ||
+      document.querySelector('input[type="checkbox"][required]') ||
+      document.querySelector('input[type="checkbox"]');
+
+    function getById(id) {
+      return document.getElementById(id);
+    }
+
+    function getValue(id, fallbackSelector) {
+      const el = getById(id) || document.querySelector(fallbackSelector);
+      return el ? el.value.trim() : "";
+    }
+
+    function fixLegalLinks() {
+      const links = Array.from(document.querySelectorAll("a"));
+
+      links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+
+        if (text.includes("terms")) {
+          link.href = "legal.html#terms";
+        }
+
+        if (text.includes("privacy")) {
+          link.href = "legal.html#privacy";
+        }
+      });
+    }
+
+    function createStrengthUI() {
+      if (!passwordInput) return;
+
+      let strengthText = document.getElementById("strengthText");
+      let strengthBars = document.querySelectorAll(".strength-bar");
+
+      if (strengthBars.length === 0) {
+        const wrap = document.createElement("div");
+        wrap.className = "strength-wrap";
+        wrap.style.display = "grid";
+        wrap.style.gridTemplateColumns = "repeat(4, 1fr)";
+        wrap.style.gap = "6px";
+        wrap.style.marginTop = "10px";
+
+        for (let i = 0; i < 4; i++) {
+          const bar = document.createElement("span");
+          bar.className = "strength-bar";
+          bar.style.height = "4px";
+          bar.style.borderRadius = "999px";
+          bar.style.background = "linear-gradient(135deg, #c99616, #efc458)";
+          bar.style.opacity = ".25";
+          bar.style.transition = ".2s ease";
+          wrap.appendChild(bar);
+        }
+
+        const parent = passwordInput.closest(".input-wrap") || passwordInput.parentElement;
+        parent.insertAdjacentElement("afterend", wrap);
+
+        strengthBars = document.querySelectorAll(".strength-bar");
+      }
+
+      if (!strengthText) {
+        strengthText = document.createElement("small");
+        strengthText.id = "strengthText";
+        strengthText.textContent = "Enter password to see strength";
+        strengthText.style.display = "block";
+        strengthText.style.marginTop = "8px";
+        strengthText.style.fontSize = "12px";
+        strengthText.style.color = "#9aa5b3";
+
+        const barsWrap = document.querySelector(".strength-wrap");
+        if (barsWrap) {
+          barsWrap.insertAdjacentElement("afterend", strengthText);
+        }
+      }
+    }
+
+    function updateStrength() {
+      if (!passwordInput) return;
+
+      const password = passwordInput.value;
+      const strengthText = document.getElementById("strengthText");
+      const strengthBars = document.querySelectorAll(".strength-bar");
+
+      let strength = 0;
+
+      if (password.length >= 8) strength++;
+      if (/[A-Z]/.test(password)) strength++;
+      if (/[0-9]/.test(password)) strength++;
+      if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+      strengthBars.forEach((bar, index) => {
+        bar.style.opacity = index < strength ? "1" : ".25";
+
+        if (strength <= 1) {
+          bar.style.background = "#ff7b7b";
+        } else if (strength === 2 || strength === 3) {
+          bar.style.background = "linear-gradient(135deg, #c99616, #efc458)";
+        } else {
+          bar.style.background = "#27d59a";
+        }
+      });
+
+      if (strengthText) {
+        if (password.length === 0) {
+          strengthText.textContent = "Enter password to see strength";
+          strengthText.style.color = "#9aa5b3";
+        } else if (strength <= 1) {
+          strengthText.textContent = "Weak password";
+          strengthText.style.color = "#ff7b7b";
+        } else if (strength === 2 || strength === 3) {
+          strengthText.textContent = "Good password";
+          strengthText.style.color = "#efc458";
+        } else {
+          strengthText.textContent = "Strong password";
+          strengthText.style.color = "#27d59a";
+        }
+      }
+    }
+
+    fixLegalLinks();
+    createStrengthUI();
+
+    if (toggleBtn && passwordInput) {
+      toggleBtn.addEventListener("click", function () {
+        const isHidden = passwordInput.type === "password";
+        passwordInput.type = isHidden ? "text" : "password";
+        toggleBtn.textContent = isHidden ? "HIDE" : "SHOW";
+      });
+    }
+
+    if (passwordInput) {
+      passwordInput.addEventListener("input", updateStrength);
+      updateStrength();
+    }
+
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        const textInputs = form.querySelectorAll('input[type="text"]');
+
+        const firstName =
+          getValue("firstName", 'input[name="firstName"]') ||
+          (textInputs[0] ? textInputs[0].value.trim() : "");
+
+        const lastName =
+          getValue("lastName", 'input[name="lastName"]') ||
+          (textInputs[1] ? textInputs[1].value.trim() : "");
+
+        const email = getValue("email", 'input[type="email"]');
+        const phone = getValue("phone", 'input[type="tel"], input[name="phone"]');
+        const country = getValue("country", "select");
+        const password = passwordInput ? passwordInput.value.trim() : "";
+
+        if (!firstName || !lastName || !email || !phone || !country || !password) {
+          alert("Please fill all required details.");
+          return;
+        }
+
+        if (password.length < 8) {
+          alert("Password must be at least 8 characters.");
+          passwordInput.focus();
+          return;
+        }
+
+        if (agreeTerms && !agreeTerms.checked) {
+          alert("Please agree to Glamour's Terms of Service and Privacy Policy.");
+          return;
+        }
+
+        const user = {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phone: phone,
+          country: country
+        };
+
+        localStorage.setItem("glamourUser", JSON.stringify(user));
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Creating your account...";
+        }
+
+        setTimeout(function () {
+          window.location.href = "dashboard.html";
+        }, 900);
+      }, true);
+    }
+  });
+})();
+</script>
 </body>
 </html>
