@@ -1075,7 +1075,77 @@
       color:#f6f8fa;
       text-align:right;
     }
+.bank-row{
+  align-items:center;
+}
 
+.bank-brand{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  color:#ffffff;
+  font-weight:900;
+}
+
+.palmpay-logo{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:inline-grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 28% 25%, rgba(255,255,255,.95), transparent 20%),
+    linear-gradient(135deg, #6817ff 0%, #7f35ff 48%, #16e0aa 100%);
+  border:2px solid rgba(255,255,255,.92);
+  box-shadow:
+    0 0 0 4px rgba(104,23,255,.15),
+    0 0 22px rgba(104,23,255,.45),
+    0 0 28px rgba(36,214,146,.20);
+  flex-shrink:0;
+}
+
+.palmpay-logo::before{
+  content:"P";
+  font-size:18px;
+  font-weight:950;
+  color:#ffffff;
+  letter-spacing:-2px;
+  transform:translateX(-1px);
+}
+
+.palmpay-logo::after{
+  content:"";
+  position:absolute;
+  width:13px;
+  height:13px;
+  right:7px;
+  bottom:7px;
+  border-radius:50%;
+  background:#20f0b1;
+  box-shadow:0 0 12px rgba(32,240,177,.75);
+}
+
+.bank-copy{
+  border:0;
+  min-height:28px;
+  padding:0 10px;
+  border-radius:999px;
+  cursor:pointer;
+  background:rgba(36,214,146,.10);
+  border:1px solid rgba(36,214,146,.22);
+  color:#8df2c9;
+  font-size:10px;
+  font-weight:900;
+  margin-left:8px;
+}
+
+.bank-copy:hover{
+  background:rgba(36,214,146,.16);
+  color:#ffffff;
+}
     .pay-row.big{
       background:rgba(216,169,47,.06);
     }
@@ -1746,26 +1816,32 @@
         </div>
 
         <div class="pay-box">
-          <div class="pay-row">
-            <span>Bank Name</span>
-            <strong>YOUR BANK NAME</strong>
-          </div>
+  <div class="pay-row bank-row">
+    <span>Bank Name</span>
+    <strong class="bank-brand">
+      <span class="palmpay-logo" aria-label="PalmPay logo"></span>
+      <span>PalmPay</span>
+    </strong>
+  </div>
 
-          <div class="pay-row">
-            <span>Account Name</span>
-            <strong>YOUR ACCOUNT NAME</strong>
-          </div>
+  <div class="pay-row">
+    <span>Account Name</span>
+    <strong>Uchechi Favour Simeon</strong>
+  </div>
 
-          <div class="pay-row">
-            <span>Account Number</span>
-            <strong>YOUR ACCOUNT NUMBER</strong>
-          </div>
+  <div class="pay-row">
+    <span>Account Number</span>
+    <strong>
+      9046995941
+      <button class="bank-copy" type="button" onclick="copyAccountNumber()">Copy</button>
+    </strong>
+  </div>
 
-          <div class="pay-row">
-            <span>Payment Note</span>
-            <strong>Glamour Activation</strong>
-          </div>
-        </div>
+  <div class="pay-row">
+    <span>Payment Note</span>
+    <strong>Glamour Activation</strong>
+  </div>
+</div>
 
         <div class="warning">
           Only pay through the official account details above. After payment, contact Quin Favy Networker on Telegram for activation confirmation.
@@ -1979,7 +2055,13 @@
 
       showToast("GL", "Glamour link copied", "Your associate link is ready to share.");
     }
-
+function copyAccountNumber(){
+  navigator.clipboard.writeText("9046995941").then(() => {
+    showToast("PAY", "Account number copied", "9046995941 has been copied successfully.");
+  }).catch(() => {
+    alert("Account Number: 9046995941");
+  });
+}
     function logout(){
       window.location.href = "signin.html";
     }
