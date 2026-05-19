@@ -1277,6 +1277,237 @@
         grid-template-columns:1fr;
       }
     }
+    .payment-notice-card{
+  width:min(540px,100%);
+  border-radius:26px;
+  padding:28px 24px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top, rgba(239,196,88,.18), transparent 34%),
+    linear-gradient(180deg, rgba(23,18,11,.98), rgba(8,10,14,.98));
+  border:1px solid rgba(255,217,120,.25);
+  box-shadow:0 28px 90px rgba(0,0,0,.60), 0 0 45px rgba(216,169,47,.12);
+}
+
+.payment-notice-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:18px;
+  color:#ff6b6b;
+  font-size:28px;
+  font-weight:950;
+  letter-spacing:.02em;
+}
+
+.payment-notice-title span{
+  font-size:30px;
+}
+
+.payment-notice-card p{
+  max-width:430px;
+  margin:0 auto 24px;
+  color:#f3f6fb;
+  font-size:16px;
+  line-height:1.65;
+  font-weight:700;
+}
+
+.notice-highlight{
+  color:#ffd978;
+  font-weight:950;
+}
+
+.payment-notice-btn{
+  width:100%;
+  min-height:56px;
+  border:0;
+  border-radius:999px;
+  cursor:pointer;
+  background:linear-gradient(135deg, #ffe98a, #d8a92f);
+  color:#1a1407;
+  font-size:17px;
+  font-weight:900;
+  box-shadow:0 14px 35px rgba(216,169,47,.25);
+}
+
+.payment-notice-btn:hover{
+  transform:translateY(-1px);
+}
+
+.bank-row{
+  align-items:center;
+}
+
+.bank-brand{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  color:#ffffff;
+  font-weight:900;
+}
+
+.palmpay-logo{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:inline-grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 28% 25%, rgba(255,255,255,.95), transparent 20%),
+    linear-gradient(135deg, #6817ff 0%, #7f35ff 48%, #16e0aa 100%);
+  border:2px solid rgba(255,255,255,.92);
+  box-shadow:
+    0 0 0 4px rgba(104,23,255,.15),
+    0 0 22px rgba(104,23,255,.45),
+    0 0 28px rgba(36,214,146,.20);
+  flex-shrink:0;
+}
+
+.palmpay-logo::before{
+  content:"P";
+  font-size:19px;
+  font-weight:950;
+  color:#ffffff;
+  letter-spacing:-2px;
+  transform:translateX(-1px);
+}
+
+.palmpay-logo::after{
+  content:"";
+  position:absolute;
+  width:13px;
+  height:13px;
+  right:7px;
+  bottom:7px;
+  border-radius:50%;
+  background:#20f0b1;
+  box-shadow:0 0 12px rgba(32,240,177,.75);
+}
+
+.bank-copy{
+  border:0;
+  min-height:28px;
+  padding:0 10px;
+  border-radius:999px;
+  cursor:pointer;
+  background:rgba(36,214,146,.10);
+  border:1px solid rgba(36,214,146,.22);
+  color:#8df2c9;
+  font-size:10px;
+  font-weight:900;
+  margin-left:8px;
+}
+
+.bank-copy:hover{
+  background:rgba(36,214,146,.16);
+  color:#ffffff;
+}
+
+.verify-card{
+  width:min(560px,100%);
+  border-radius:28px;
+  padding:32px 24px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top, rgba(255,107,107,.13), transparent 28%),
+    linear-gradient(180deg, rgba(11,13,18,.99), rgba(5,6,9,.99));
+  border:1px solid rgba(255,107,107,.16);
+  box-shadow:0 28px 90px rgba(0,0,0,.62);
+}
+
+.verify-icon{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  margin:0 auto 22px;
+  display:grid;
+  place-items:center;
+  background:#ee263f;
+  color:#fff;
+  font-size:52px;
+  font-weight:300;
+  box-shadow:0 0 45px rgba(238,38,63,.35);
+}
+
+.verify-card h2{
+  color:#ff485d;
+  font-size:34px;
+  line-height:1.15;
+  margin-bottom:18px;
+  font-weight:950;
+}
+
+.verify-card p{
+  max-width:460px;
+  margin:0 auto 20px;
+  color:#f4f6fb;
+  font-size:16px;
+  line-height:1.8;
+  font-weight:700;
+}
+
+.invalid-box{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:0 18px;
+  border-radius:16px;
+  margin:24px 0;
+  background:rgba(255,37,68,.08);
+  border:1px solid rgba(255,72,93,.25);
+  color:#ff6b7d;
+  font-size:18px;
+  font-weight:950;
+  text-align:left;
+}
+
+.invalid-box span:last-child{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,72,93,.45);
+}
+
+.verify-actions{
+  display:grid;
+  gap:12px;
+}
+
+.retry-btn{
+  min-height:48px;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:900;
+}
+
+.support-btn{
+  min-height:56px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(135deg, #21b8ff, #0a8ee8);
+  color:#fff;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:900;
+  box-shadow:0 14px 35px rgba(33,184,255,.20);
+}
+
+.support-btn:hover{
+  transform:translateY(-1px);
+}
   </style>
 </head>
 <body>
@@ -1382,7 +1613,7 @@
           </div>
 
           <div class="head-actions">
-            <button class="btn btn-dark" onclick="openTelegram()">Telegram Support</button>
+            <button class="btn btn-dark" onclick="openActivation()">Activation Help</button>
             <button class="btn btn-gold" onclick="openActivation()">Activate Account</button>
           </div>
         </div>
@@ -1682,7 +1913,7 @@
 
           <div class="head-actions">
             <button class="btn btn-dark" onclick="copyLink()">Copy Link</button>
-            <button class="btn btn-gold" onclick="openTelegram()">Contact Support</button>
+            <button class="btn btn-gold" onclick="openActivation()">Activation Help</button>
           </div>
         </div>
 
@@ -1780,7 +2011,26 @@
       </div>
     </main>
   </div>
+<div class="modal" id="paymentNoticeModal">
+  <div class="payment-notice-card">
+    <div class="payment-notice-title">
+      <span>⚠️</span>
+      PAYMENT NOTICE
+    </div>
 
+    <p>
+      To ensure your payment is confirmed without delay, please
+      <span class="notice-highlight">do not use OPAY</span>.
+      Glamour transactions are accepted via
+      <span class="notice-highlight">PalmPay, Moniepoint, POS transfers, and all major banks</span>.
+      OPAY is not supported.
+    </p>
+
+    <button class="payment-notice-btn" onclick="continueToPayment()">
+      Understood
+    </button>
+  </div>
+</div>
   <div class="modal" id="activationModal">
     <div class="modal-card">
       <div class="modal-head">
@@ -1844,13 +2094,38 @@
 </div>
 
         <div class="warning">
-          Only pay through the official account details above. After payment, contact Quin Favy Networker on Telegram for activation confirmation.
+          Only pay through the official account details above. After payment, click “I’ve Made Payment” so the platform can check your transaction status.
         </div>
 
         <div class="modal-actions">
           <button class="btn btn-dark" onclick="closeActivation()">Maybe Later</button>
           <button class="btn btn-gold" onclick="confirmPayment()">I’ve Made Payment</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="paymentFailedModal">
+    <div class="verify-card">
+      <div class="verify-icon">×</div>
+
+      <h2>Transaction verification failed!</h2>
+
+      <p>
+        Your payment could not be completed.<br>
+        Reason: No payment received from you or invalid payment method.
+        If you have made the payment, kindly send payment proof to our support team below.
+      </p>
+
+      <div class="invalid-box">
+        <span>Invalid Payment</span>
+        <span>×</span>
+      </div>
+
+      <div class="verify-actions">
+        <button class="retry-btn" onclick="retryPayment()">↻ Retry Payment</button>
+        <button class="support-btn" onclick="contactPaymentSupport()">✈ Contact Support</button>
       </div>
     </div>
   </div>
@@ -1939,6 +2214,8 @@
 
     const sidebar = document.getElementById("sidebar");
     const activationModal = document.getElementById("activationModal");
+    const paymentNoticeModal = document.getElementById("paymentNoticeModal");
+    const paymentFailedModal = document.getElementById("paymentFailedModal");
     const toastStack = document.getElementById("toastStack");
 
     function getUser(){
@@ -2027,6 +2304,15 @@
     }
 
     function openActivation(){
+      paymentNoticeModal.classList.add("show");
+    }
+
+    function closePaymentNotice(){
+      paymentNoticeModal.classList.remove("show");
+    }
+
+    function continueToPayment(){
+      closePaymentNotice();
       activationModal.classList.add("show");
     }
 
@@ -2035,11 +2321,24 @@
     }
 
     function openTelegram(){
-      window.open(telegramLink, "_blank");
+      openActivation();
     }
 
     function confirmPayment(){
       closeActivation();
+      paymentFailedModal.classList.add("show");
+    }
+
+    function closePaymentFailed(){
+      paymentFailedModal.classList.remove("show");
+    }
+
+    function retryPayment(){
+      closePaymentFailed();
+      openActivation();
+    }
+
+    function contactPaymentSupport(){
       showToast("PAY", "Telegram support opened", "Send your payment proof to Quin Favy Networker.");
       window.open(telegramLink, "_blank");
     }
@@ -2100,9 +2399,23 @@ function copyAccountNumber(){
       }
     });
 
+    paymentNoticeModal.addEventListener("click", function(e){
+      if(e.target === paymentNoticeModal){
+        closePaymentNotice();
+      }
+    });
+
+    paymentFailedModal.addEventListener("click", function(e){
+      if(e.target === paymentFailedModal){
+        closePaymentFailed();
+      }
+    });
+
     document.addEventListener("keydown", function(e){
       if(e.key === "Escape"){
+        closePaymentNotice();
         closeActivation();
+        closePaymentFailed();
         sidebar.classList.remove("open");
       }
     });
