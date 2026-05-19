@@ -1414,10 +1414,11 @@
   padding:32px 24px;
   text-align:center;
   background:
-    radial-gradient(circle at top, rgba(255,107,107,.13), transparent 28%),
-    linear-gradient(180deg, rgba(11,13,18,.99), rgba(5,6,9,.99));
-  border:1px solid rgba(255,107,107,.16);
-  box-shadow:0 28px 90px rgba(0,0,0,.62);
+    radial-gradient(circle at top, rgba(36,214,146,.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(216,169,47,.10), transparent 28%),
+    linear-gradient(180deg, rgba(12,16,22,.99), rgba(5,7,10,.99));
+  border:1px solid rgba(36,214,146,.16);
+  box-shadow:0 28px 90px rgba(0,0,0,.62), 0 0 42px rgba(36,214,146,.08);
 }
 
 .verify-icon{
@@ -1427,32 +1428,32 @@
   margin:0 auto 22px;
   display:grid;
   place-items:center;
-  background:#ee263f;
-  color:#fff;
-  font-size:52px;
-  font-weight:300;
-  box-shadow:0 0 45px rgba(238,38,63,.35);
+  background:linear-gradient(135deg, #1db97d, #62f0b7);
+  color:#07120e;
+  font-size:42px;
+  font-weight:950;
+  box-shadow:0 0 45px rgba(36,214,146,.24);
 }
 
 .verify-card h2{
-  color:#ff485d;
-  font-size:34px;
+  color:#f4f6fb;
+  font-size:32px;
   line-height:1.15;
   margin-bottom:18px;
   font-weight:950;
 }
 
 .verify-card p{
-  max-width:460px;
+  max-width:470px;
   margin:0 auto 20px;
-  color:#f4f6fb;
-  font-size:16px;
+  color:#dce3ea;
+  font-size:15px;
   line-height:1.8;
   font-weight:700;
 }
 
-.invalid-box{
-  min-height:58px;
+.verify-box{
+  min-height:62px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -1460,21 +1461,22 @@
   padding:0 18px;
   border-radius:16px;
   margin:24px 0;
-  background:rgba(255,37,68,.08);
-  border:1px solid rgba(255,72,93,.25);
-  color:#ff6b7d;
-  font-size:18px;
+  background:rgba(36,214,146,.07);
+  border:1px solid rgba(36,214,146,.22);
+  color:#8df2c9;
+  font-size:17px;
   font-weight:950;
   text-align:left;
 }
 
-.invalid-box span:last-child{
-  width:32px;
+.verify-box span:last-child{
+  min-width:32px;
   height:32px;
   border-radius:50%;
   display:grid;
   place-items:center;
-  border:1px solid rgba(255,72,93,.45);
+  border:1px solid rgba(36,214,146,.35);
+  color:#fff1bf;
 }
 
 .verify-actions{
@@ -1486,10 +1488,11 @@
   min-height:48px;
   border:0;
   border-radius:999px;
-  background:transparent;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
   color:#fff;
   cursor:pointer;
-  font-size:16px;
+  font-size:15px;
   font-weight:900;
 }
 
@@ -1957,14 +1960,14 @@
             </div>
 
             <div class="associate-link">
-              <input id="associateLink" value="https://yourdomain.com/signup.html?ref=GLAMCREATOR" readonly />
+              <input id="associateLink" value="https://glamour-platform.vercel.app/signup.html?ref=GLAMCREATOR" readonly />
               <button class="btn btn-gold" onclick="copyLink()">Copy</button>
             </div>
 
             <br />
 
             <div class="warning">
-              Replace <strong>yourdomain.com</strong> with your real website domain after hosting.
+              Share your official Glamour link only with people who requested it.
             </div>
           </div>
 
@@ -2007,7 +2010,7 @@
 
       <div class="footer-credit">
         Developed and Designed by
-        <a href="https://wa.me/2347075210213" target="_blank">JOSHTECH INSPIRE</a>
+        <a href="https://t.me/Quin_favy_Networker" target="_blank">JOSHTECH INSPIRE</a>
       </div>
     </main>
   </div>
@@ -2019,11 +2022,10 @@
     </div>
 
     <p>
-      To ensure your payment is confirmed without delay, please
-      <span class="notice-highlight">do not use OPAY</span>.
+      For faster manual confirmation, please use the supported payment channels only.
       Glamour transactions are accepted via
-      <span class="notice-highlight">PalmPay, Moniepoint, POS transfers, and all major banks</span>.
-      OPAY is not supported.
+      <span class="notice-highlight">PalmPay, Moniepoint, POS transfers, and major bank transfers</span>.
+      OPAY transfers may delay confirmation, so please avoid OPAY for this activation.
     </p>
 
     <button class="payment-notice-btn" onclick="continueToPayment()">
@@ -2094,38 +2096,37 @@
 </div>
 
         <div class="warning">
-          Only pay through the official account details above. After payment, click “I’ve Made Payment” so the platform can check your transaction status.
+          Only pay through the official account details above. After payment, use the confirmation button below to contact support with your payment proof.
         </div>
 
         <div class="modal-actions">
           <button class="btn btn-dark" onclick="closeActivation()">Maybe Later</button>
-          <button class="btn btn-gold" onclick="confirmPayment()">I’ve Made Payment</button>
+          <button class="btn btn-gold" onclick="confirmPayment()">I’ve Paid, Contact Support</button>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="modal" id="paymentFailedModal">
+  <div class="modal" id="paymentVerificationModal">
     <div class="verify-card">
-      <div class="verify-icon">×</div>
+      <div class="verify-icon">✓</div>
 
-      <h2>Transaction verification failed!</h2>
+      <h2>Payment Verification Pending</h2>
 
       <p>
-        Your payment could not be completed.<br>
-        Reason: No payment received from you or invalid payment method.
-        If you have made the payment, kindly send payment proof to our support team below.
+        Your activation request has been prepared. Automatic payment confirmation is not available on this demo dashboard yet.
+        If you have completed the transfer, contact support and send your payment proof for manual confirmation.
       </p>
 
-      <div class="invalid-box">
-        <span>Invalid Payment</span>
-        <span>×</span>
+      <div class="verify-box">
+        <span>Payment proof required for activation</span>
+        <span>✓</span>
       </div>
 
       <div class="verify-actions">
-        <button class="retry-btn" onclick="retryPayment()">↻ Retry Payment</button>
-        <button class="support-btn" onclick="contactPaymentSupport()">✈ Contact Support</button>
+        <button class="retry-btn" onclick="retryPayment()">↻ View Payment Details Again</button>
+        <button class="support-btn" onclick="contactPaymentSupport()">✈ Contact Support on Telegram</button>
       </div>
     </div>
   </div>
@@ -2214,8 +2215,6 @@
 
     const sidebar = document.getElementById("sidebar");
     const activationModal = document.getElementById("activationModal");
-    const paymentNoticeModal = document.getElementById("paymentNoticeModal");
-    const paymentFailedModal = document.getElementById("paymentFailedModal");
     const toastStack = document.getElementById("toastStack");
 
     function getUser(){
@@ -2304,11 +2303,19 @@
     }
 
     function openActivation(){
-      paymentNoticeModal.classList.add("show");
+      const noticeModal = document.getElementById("paymentNoticeModal");
+      if(noticeModal){
+        noticeModal.classList.add("show");
+      }else{
+        activationModal.classList.add("show");
+      }
     }
 
     function closePaymentNotice(){
-      paymentNoticeModal.classList.remove("show");
+      const noticeModal = document.getElementById("paymentNoticeModal");
+      if(noticeModal){
+        noticeModal.classList.remove("show");
+      }
     }
 
     function continueToPayment(){
@@ -2321,26 +2328,61 @@
     }
 
     function openTelegram(){
-      openActivation();
+      window.open(telegramLink, "_blank");
     }
 
     function confirmPayment(){
       closeActivation();
-      paymentFailedModal.classList.add("show");
+      const verifyModal = document.getElementById("paymentVerificationModal");
+      if(verifyModal){
+        verifyModal.classList.add("show");
+      }else{
+        contactPaymentSupport();
+      }
     }
 
-    function closePaymentFailed(){
-      paymentFailedModal.classList.remove("show");
+    function closePaymentVerification(){
+      const verifyModal = document.getElementById("paymentVerificationModal");
+      if(verifyModal){
+        verifyModal.classList.remove("show");
+      }
     }
 
     function retryPayment(){
-      closePaymentFailed();
+      closePaymentVerification();
       openActivation();
     }
 
     function contactPaymentSupport(){
-      showToast("PAY", "Telegram support opened", "Send your payment proof to Quin Favy Networker.");
-      window.open(telegramLink, "_blank");
+      const user = getUser();
+      const fullName = [user.firstName, user.lastName].filter(Boolean).join(" ") || "Glam Creator";
+      const email = user.email || "Not provided";
+      const phone = user.phone || "Not provided";
+
+      const supportMessage =
+        "Hello Quin Favy Networker, I have made my Glamour activation payment and I want to confirm it." +
+        "\n\nName: " + fullName +
+        "\nEmail: " + email +
+        "\nPhone: " + phone +
+        "\nAmount Paid: ₦14,000" +
+        "\nBank Paid To: PalmPay" +
+        "\nAccount Number: 9046995941" +
+        "\n\nI will send my payment proof here.";
+
+      closePaymentVerification();
+
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(supportMessage).then(() => {
+          showToast("PAY", "Support message copied", "Telegram will open now. Paste the copied message and attach your payment proof.");
+          window.open(telegramLink, "_blank");
+        }).catch(() => {
+          showToast("PAY", "Telegram support opened", "Send your payment proof to Quin Favy Networker.");
+          window.open(telegramLink, "_blank");
+        });
+      }else{
+        showToast("PAY", "Telegram support opened", "Send your payment proof to Quin Favy Networker.");
+        window.open(telegramLink, "_blank");
+      }
     }
 
     function copyLink(){
@@ -2399,23 +2441,29 @@ function copyAccountNumber(){
       }
     });
 
-    paymentNoticeModal.addEventListener("click", function(e){
-      if(e.target === paymentNoticeModal){
-        closePaymentNotice();
-      }
-    });
+    const paymentNoticeModal = document.getElementById("paymentNoticeModal");
+    if(paymentNoticeModal){
+      paymentNoticeModal.addEventListener("click", function(e){
+        if(e.target === paymentNoticeModal){
+          closePaymentNotice();
+        }
+      });
+    }
 
-    paymentFailedModal.addEventListener("click", function(e){
-      if(e.target === paymentFailedModal){
-        closePaymentFailed();
-      }
-    });
+    const paymentVerificationModal = document.getElementById("paymentVerificationModal");
+    if(paymentVerificationModal){
+      paymentVerificationModal.addEventListener("click", function(e){
+        if(e.target === paymentVerificationModal){
+          closePaymentVerification();
+        }
+      });
+    }
 
     document.addEventListener("keydown", function(e){
       if(e.key === "Escape"){
         closePaymentNotice();
         closeActivation();
-        closePaymentFailed();
+        closePaymentVerification();
         sidebar.classList.remove("open");
       }
     });
